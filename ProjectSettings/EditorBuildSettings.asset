@@ -5,13 +5,5 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Acrocatic/Scenes/v1.1 - Basic.unity
-  - enabled: 0
-    path: Assets/Acrocatic/Scenes/v1.0 - Basic.unity
-  - enabled: 0
-    path: Assets/Acrocatic/Scenes/v1.1 - Ice.unity
-  - enabled: 0
-    path: Assets/Acrocatic/Scenes/v1.1 - Platforms.unity
   - enabled: 1
-    path: Assets/Acrocatic/Scenes/v1.2 - Basic.unity
+    path: Assets/_Scenes/Test.unity
