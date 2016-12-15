@@ -44,25 +44,25 @@ public class PlayerController : MonoBehaviour {
 
     // This function is called by GroundCollisionCheck when the player touches the floor.
     public void onGroundCollisionEnter() {
-        Log("Player on ground collision enter");
+        Debug.Log("Player on ground collision enter");
         grounded = true;
     }
 
     // This function is called by GroundCollisionCheck when the player is not touching the floor.
     public void onGroundCollisionExit() {
-        Log("Player on ground collision exit");
+        Debug.Log("Player on ground collision exit");
         grounded = false;
     }
 
     // This functions is called by WallCollisionCheck when the player touches a wall.
     public void onWallCollisionEnter() {
-        Log("Player on wall collision enter");
+        Debug.Log("Player on wall collision enter");
         wallCollision = true;
     }
 
     // This function is called by WallCollisionCheck when the player move off from a wall.
     public void onWallCollisionExit() {
-        Log("Player on wall collision exit");
+        Debug.Log("Player on wall collision exit");
         wallCollision = false;
     }
 
