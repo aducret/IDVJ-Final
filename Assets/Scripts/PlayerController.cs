@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public float timeToJumpAgain = 0.2f;
     public float slidingOnWallDrag = 5f;
     public bool logEnabled = false;
+    public LevelController level;
 
     // If direction is grater or equal than 0 the player will move to right
     // otherwise the player moves left.
@@ -36,6 +37,18 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
         move();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Goal"))
+        {
+            level.win();
+        }
+        if (other.CompareTag("Trap"))
+        {
+            level.lose();
+        }
     }
 
     // ----------------
