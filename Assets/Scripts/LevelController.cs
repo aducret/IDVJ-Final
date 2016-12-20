@@ -10,6 +10,7 @@ public class LevelController : MonoBehaviour {
     public GameObject pausePanel;
     public Text goalTitle;
 	public Text goalMainTitle;
+    public Text pauseText;
 	public int levelNumber;
 
     private KeyCode pause = KeyCode.P;
@@ -76,7 +77,14 @@ public class LevelController : MonoBehaviour {
         goalPanel.SetActive(false);
         deadPanel.SetActive(false);
         pausePanel.SetActive(false);
-        SceneManager.LoadScene("Level " + level);
+        if (level == 0)
+        {
+            SceneManager.LoadScene("MainMenu");
+        } else
+        {
+            SceneManager.LoadScene("Level " + level);
+        }
+        
     }
 
     private void setGoalTitles()
@@ -92,18 +100,20 @@ public class LevelController : MonoBehaviour {
         Time.timeScale = 0;
         paused = true;
         pausePanel.SetActive(panel);
+        pauseText.text = "";
     }
 
     public void unPauseGame()
     {
+        pauseText.text = "Press 'P' to pause";
         Time.timeScale = 1;
         paused = false;
         pausePanel.SetActive(false);
     }
 
-    public void resartScene(int level)
+    public void resartScene()
     {
-        SceneManager.LoadScene("Level " + level);
+        SceneManager.LoadScene("Level " + levelNumber);
     }
 
     private void timeManager()
