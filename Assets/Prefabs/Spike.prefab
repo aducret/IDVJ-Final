@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4000014267614248}
   - component: {fileID: 212000010009726226}
+  - component: {fileID: 65451192061487674}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,12 +35,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013523797768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.85, y: -26.012594, z: 0}
+  m_LocalPosition: {x: 9.83, y: -13.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65451192061487674
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013523797768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.56, y: 1.8174798, z: 0.2}
+  m_Center: {x: 0, y: -0.37126064, z: 0}
 --- !u!212 &212000010009726226
 SpriteRenderer:
   m_ObjectHideFlags: 1
