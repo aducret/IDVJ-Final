@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public float timeToJumpAgain = 0.2f;
     public float slidingOnWallDrag = 5f;
     public bool logEnabled = false;
+    public LevelController level;
 
     // If direction is grater or equal than 0 the player will move to right
     // otherwise the player moves left.
@@ -38,31 +39,43 @@ public class PlayerController : MonoBehaviour {
         move();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Goal"))
+        {
+            level.win();
+        }
+        if (other.CompareTag("Trap"))
+        {
+            level.lose();
+        }
+    }
+
     // ----------------
     // Public Functions
     // ---------------- 
 
     // This function is called by GroundCollisionCheck when the player touches the floor.
     public void onGroundCollisionEnter() {
-        Debug.Log("Player on ground collision enter");
+        Log("Player on ground collision enter");
         grounded = true;
     }
 
     // This function is called by GroundCollisionCheck when the player is not touching the floor.
     public void onGroundCollisionExit() {
-        Debug.Log("Player on ground collision exit");
+        Log("Player on ground collision exit");
         grounded = false;
     }
 
     // This functions is called by WallCollisionCheck when the player touches a wall.
     public void onWallCollisionEnter() {
-        Debug.Log("Player on wall collision enter");
+        Log("Player on wall collision enter");
         wallCollision = true;
     }
 
     // This function is called by WallCollisionCheck when the player move off from a wall.
     public void onWallCollisionExit() {
-        Debug.Log("Player on wall collision exit");
+        Log("Player on wall collision exit");
         wallCollision = false;
     }
 
