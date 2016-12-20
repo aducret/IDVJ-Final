@@ -55,3 +55,4 @@ MonoBehaviour:
   deadPanel: {fileID: 0}
   goalPanel: {fileID: 0}
   pausePanel: {fileID: 0}
+  goalTitle: {fileID: 0}

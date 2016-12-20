@@ -9,6 +9,8 @@ public class LevelController : MonoBehaviour {
     public GameObject goalPanel;
     public GameObject pausePanel;
     public Text goalTitle;
+	public Text goalMainTitle;
+	public int levelNumber;
 
     private KeyCode pause = KeyCode.P;
     private float totalTime = 0;
@@ -51,7 +53,7 @@ public class LevelController : MonoBehaviour {
     public void win()
     {
         pauseGame(false);
-        setGoalTitle();
+        setGoalTitles();
         goalPanel.SetActive(true);
     }
 
@@ -77,11 +79,12 @@ public class LevelController : MonoBehaviour {
         SceneManager.LoadScene("Level " + level);
     }
 
-    private void setGoalTitle()
+    private void setGoalTitles()
     {
         var minutes = (int)Mathf.Floor(totalTime / 60);
         var seconds = totalTime % 60;
         goalTitle.text = string.Format("you take {0:00}:{1:00} to complete the level", minutes, seconds);
+		goalMainTitle.text = string.Format("LEVEL {0} COMPLETE!", levelNumber);
     }
 
     private void pauseGame(bool panel)
