@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void FixedUpdate () {
+        animator.SetBool("Run", grounded && !wallCollision);
         move();
     }
 
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour {
             timePassed = 0;
             changeDirection();
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+            animator.SetTrigger("Jump");
         }
 
         // Normal jump
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour {
             timePassed = 0;
             grounded = false;
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
+            animator.SetTrigger("Jump");
         }
     }
 
@@ -118,8 +121,10 @@ public class PlayerController : MonoBehaviour {
         if (wallCollision && rb.velocity.y < 0) {
             Log("Sliding down a wall");
             rb.drag = slidingOnWallDrag;
+            animator.SetBool("Grab", true);
         } else {
             rb.drag = 0;
+            animator.SetBool("Grab", false);
         }
     }
 
